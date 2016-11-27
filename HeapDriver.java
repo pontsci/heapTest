@@ -68,5 +68,10 @@ public class HeapDriver {
 		//create Heap
 		Heap h1 = new Heap(cap, d, num);
 		System.out.println(h1.toString());
+		h1.buildHeap();
+		System.out.println(h1.toString());
+		h1.setD(2);
+		h1.buildHeap();
+		System.out.println(h1.toString());
 	}
 }

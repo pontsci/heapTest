@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class Heap 
 {
-	private int heapSize, capacity, d;
+	private int numElements, capacity, d;
 	private int[] heap;
 	
 	public Heap(int cap, int dInt, int[] arr)
 	{
 		capacity = cap;
 		d = dInt;
-		heapSize = cap;
+		numElements = cap;
 		heap = arr;
 	}
 	
@@ -27,10 +27,53 @@ public class Heap
 			//heap[capacity * 2 - 1] = 1;
 			//System.out.println("HEAP after addition: " + Arrays.toString(heap));
 		}
+		
+		
 	}
 	
-	private int buildHeap()
+	private int percDown(int index)
 	{
+		int childToChk;
+		int tmpNode = heap[index];
+		while(kthChildIndex(index, 1) < numElements)
+		{
+			childToChk = minimumChild(index);
+			if(tmpNode > heap[childToChk])
+			{
+				heap[index] = heap[childToChk];
+			}
+			else
+			{
+				break;
+			}
+			index = childToChk;
+		}
+		heap[index] = tmpNode;
+		return 1;
+	}
+	
+	private int minimumChild(int index)
+	{
+		int minChild = kthChildIndex(index, 1);
+		int k = 2;
+		int indPos = kthChildIndex(index, k);
+		while(k <= d && indPos < numElements)
+		{
+			if(heap[indPos] < heap[minChild])
+			{
+				minChild = indPos;
+			}
+			indPos = kthChildIndex(index, k++);
+		}
+		return minChild;
+	}
+	
+	public int buildHeap()
+	{
+        for(int i = (numElements / d) ; i > -1; i--)
+        {
+        	percDown(i);
+        }
 		return 1;
 	}
 	
@@ -39,19 +82,19 @@ public class Heap
 		return Math.floorDiv(i - 1, d);
 	}
 	
-    private int kthChild(int i, int k) 
+    private int kthChildIndex(int i, int k) 
     {
         return d * i + k;
     }
 	
 	public boolean isEmpty()
 	{
-		return heapSize == 0;
+		return numElements == 0;
 	}
 	
 	public boolean isFull()
 	{
-		return heapSize == heap.length;
+		return numElements == heap.length;
 	}
 	
 	public int getCapacity()
@@ -64,9 +107,14 @@ public class Heap
 		return d;
 	}
 	
-	public int getHeapSize()
+	public int getnumElements()
 	{
-		return heapSize;
+		return numElements;
+	}
+	
+	public void setD(int dVal)
+	{
+		d = dVal;
 	}
 	
 	@Override
