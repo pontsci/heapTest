@@ -70,6 +70,15 @@ public class HeapDriver {
 		System.out.println(h1.toString());
 		h1.buildHeap();
 		System.out.println(h1.toString());
+		System.out.println("Inserting 1");
+		h1.insert(1);
+		System.out.println(h1.toString());
+		System.out.println("Inserting 10");
+		h1.insert(10);
+		System.out.println(h1.toString());
+		System.out.println("Deleting " + h1.deleteMin());
+		System.out.println(h1.toString());
+		System.out.println("Setting d to 2...");
 		h1.setD(2);
 		h1.buildHeap();
 		System.out.println(h1.toString());

@@ -19,17 +19,48 @@ public class Heap
 	{
 		if(isFull())
 		{
-			int[] tmp = new int[capacity * 2];
+			int[] tmp = new int[capacity + 1];
 			System.arraycopy(heap, 0, tmp, 0, capacity);
+			capacity++;
 			heap = tmp;
 			//System.out.println("TMP: " + Arrays.toString(tmp));
 			//System.out.println("HEAP: " + Arrays.toString(heap));
 			//heap[capacity * 2 - 1] = 1;
 			//System.out.println("HEAP after addition: " + Arrays.toString(heap));
 		}
-		
+        heap[numElements++] = num;
+        percUp(numElements - 1);
 		
 	}
+	
+	public int deleteMin()
+	{
+        if(isEmpty())
+        {
+        	
+        }
+        int deleted = heap[0];
+        heap[0] = heap[numElements - 1];
+        numElements--;
+		int[] tmp = new int[capacity - 1];
+		System.arraycopy(heap, 0, tmp, 0, capacity - 1);
+		capacity--;
+		heap = tmp;
+        percDown(0);
+        return deleted;
+	}
+	
+    private int percUp(int cIndex)
+    {
+        int tmpNode = heap[cIndex];
+        while (cIndex > 0 && tmpNode < heap[parentIndex(cIndex)])
+        {
+            heap[cIndex] = heap[parentIndex(cIndex)];
+            cIndex = parentIndex(cIndex);
+        }                   
+        heap[cIndex] = tmpNode;
+        return 1;
+    }
 	
 	private int percDown(int index)
 	{
@@ -70,8 +101,9 @@ public class Heap
 	
 	public int buildHeap()
 	{
-        for(int i = (numElements / d) ; i > -1; i--)
+        for(int i = numElements / d; i > -1; i--)
         {
+        	System.out.println(Arrays.toString(heap));
         	percDown(i);
         }
 		return 1;
