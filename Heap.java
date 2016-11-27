@@ -88,7 +88,7 @@ public class Heap
 		int minChild = kthChildIndex(index, 1);
 		int k = 2;
 		int indPos = kthChildIndex(index, k);
-		while(k <= d && indPos < numElements)
+		while(k <= d + 1 && indPos < numElements)
 		{
 			if(heap[indPos] < heap[minChild])
 			{
@@ -139,7 +139,7 @@ public class Heap
 		return d;
 	}
 	
-	public int getnumElements()
+	public int getNumElements()
 	{
 		return numElements;
 	}
