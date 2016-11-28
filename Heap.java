@@ -51,8 +51,8 @@ public class Heap
         
         // special case for numElements at 1, doesn't percolateDown to avoid errors
         if(numElements == 1){	
-            heap[0] = heap[numElements - 1]; // sets root to last element
-            numElements--;
+		heap[0] = heap[numElements - 1]; // sets root to last element
+		numElements--;
     		int[] tmp = new int[capacity - 1]; // create a tmp array smaller than heap
     		System.arraycopy(heap, 0, tmp, 0, capacity - 1); // copy elements into tmp
     		capacity--;
@@ -63,10 +63,10 @@ public class Heap
         	//code here is exact copy of above's, however it will percolate down from the root
 	        heap[0] = heap[numElements - 1]; 
 	        numElements--;
-			int[] tmp = new int[capacity - 1];
-			System.arraycopy(heap, 0, tmp, 0, capacity - 1);
-			capacity--;
-			heap = tmp;
+		int[] tmp = new int[capacity - 1];
+		System.arraycopy(heap, 0, tmp, 0, capacity - 1);
+		capacity--;
+		heap = tmp;
 	        percDown(0);
         }
         return deleted; // returns deleted element.
@@ -85,9 +85,9 @@ public class Heap
         //loop until we've either gotten to the root, or until our tmpNode is greater than the parent node.
         while (cIndex > 0 && tmpNode < heap[parentIndex(cIndex)])
         {
-        	// set child node to the parent node
+            // set child node to the parent node
             heap[cIndex] = heap[parentIndex(cIndex)]; 
-            // change our index to the parent index
+	    // change our index to the parent index
             cIndex = parentIndex(cIndex); 
         }
         // after the loop ends, we should be in the correct index for our tmpNode
@@ -191,10 +191,10 @@ public class Heap
 	*  INPUT PARAMETERS : i, the index, k, the requested kth child of i.		    *    
 	*  OUTPUT : returns the child index of the corresponding k value and given index    *    
 	************************************************************************************/
-    private int kthChildIndex(int i, int k) 
-    {
-        return d * i + k;
-    }
+	private int kthChildIndex(int i, int k) 
+	{
+        	return d * i + k;
+	}
 	
 	/********************************************************
 	*  FUNCTION  isEmpty :        	    			*
