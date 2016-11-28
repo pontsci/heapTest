@@ -3,8 +3,8 @@ package heapTest;
 /*************************************************** 
  *   Program Title: D-Heaps Implementation          *
  *   Author:  Mason Fleming                         *                    
- *   Class: CSCI3320,  Fall 2016           	   		*
- *   Assignment #2 		                     		*
+ *   Class: CSCI3320,  Fall 2016           	    *
+ *   Assignment #2 		                    *
  ****************************************************/
 
 import java.util.InputMismatchException;
