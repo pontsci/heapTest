@@ -1,5 +1,3 @@
-package heapTest;
-
 import java.util.Arrays;
 
 public class Heap 
@@ -17,10 +15,10 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  insert :        	    					*
-	*    insert a new element into the heap.         	    *
+	*  FUNCTION  insert :        	    			*
+	*    insert a new element into the heap.         	*
 	*  INPUT PARAMETERS : num, the number to be inserted	*    
-	*  OUTPUT : VOID 		          						*    
+	*  OUTPUT : VOID 		          		*    
 	********************************************************/
 	public void insert(int num)
 	{
@@ -37,10 +35,10 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  deleteMin :        	   					*
-	*    removes the min element of the heap         	    *
-	*  INPUT PARAMETERS : NONE								*    
-	*  OUTPUT : Returns the deleted element. 		        *    
+	*  FUNCTION  deleteMin :        	   		*
+	*    removes the min element of the heap         	*
+	*  INPUT PARAMETERS : NONE				*    
+	*  OUTPUT : Returns the deleted element. 		*    
 	********************************************************/
 	public int deleteMin()
 	{
@@ -75,10 +73,10 @@ public class Heap
 	}
 	
 	/****************************************************************
-	*  FUNCTION  percUp :        	    							*
-	*    percolates up the heap, following minHeap rules    		*
+	*  FUNCTION  percUp :        	    				*
+	*    percolates up the heap, following minHeap rules    	*
 	*  INPUT PARAMETERS : cIndex, the index to begin percolating at	*    
-	*  OUTPUT : returns 1 on successful run. 		          		*    
+	*  OUTPUT : returns 1 on successful run. 		        *    
 	****************************************************************/
     private int percUp(int cIndex)
     {
@@ -99,10 +97,10 @@ public class Heap
     }
 	
 	/****************************************************************
-	*  FUNCTION  percDown :        	    							*
-	*    percolates down the heap, following minHeap rules     		*
+	*  FUNCTION  percDown :        	    				*
+	*    percolates down the heap, following minHeap rules     	*
 	*  INPUT PARAMETERS : index, the index to begin percolating at	*    
-	*  OUTPUT : returns 1 on successful run.		          		*    
+	*  OUTPUT : returns 1 on successful run.		        *    
 	****************************************************************/
 	private int percDown(int index)
 	{
@@ -133,10 +131,10 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  minimumChild :        	    				*
+	*  FUNCTION  minimumChild :        	    		*
 	*    find the minimum child of the given index         	*
 	*  INPUT PARAMETERS : index, the index of the parent	*    
-	*  OUTPUT : returns the minimum child					*    
+	*  OUTPUT : returns the minimum child			*    
 	********************************************************/
 	private int minimumChild(int index)
 	{
@@ -162,10 +160,10 @@ public class Heap
 	}
 	
 	/****************************************************************************
-	*  FUNCTION  buildHeap :        	    									*
-	*    builds the heap by percolating down every parent node with the given d	*
-	*  INPUT PARAMETERS : NONE													*    
-	*  OUTPUT : returns 1 on successful run.									*    
+	*  FUNCTION  buildHeap :						    *
+	*    builds the heap by percolating down every parent node with the given d *
+	*  INPUT PARAMETERS : NONE                                                  *    
+	*  OUTPUT : returns 1 on successful run.                                    *    
 	****************************************************************************/
 	public int buildHeap()
 	{
@@ -177,9 +175,9 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  parentIndex :        	    				*
-	*    calculates the given index's parent node      	    *
-	*  INPUT PARAMETERS : i, the child index				*    
+	*  FUNCTION  parentIndex :        	    		*
+	*    calculates the given index's parent node      	*
+	*  INPUT PARAMETERS : i, the child index		*    
 	*  OUTPUT : returns the parent index of the given index.*    
 	********************************************************/
 	private int parentIndex(int i)
@@ -188,10 +186,10 @@ public class Heap
 	}
 	
 	/************************************************************************************
-	*  FUNCTION  kthChildIndex :        	    										*
-	*    calculates the index of the given k value, child of parent 					*
-	*  INPUT PARAMETERS : i, the index, k, the requested kth child of i.				*    
-	*  OUTPUT : returns the child index of the corresponding k value and given index	*    
+	*  FUNCTION  kthChildIndex :							    *
+	*    calculates the index of the given k value, child of parent			    *
+	*  INPUT PARAMETERS : i, the index, k, the requested kth child of i.		    *    
+	*  OUTPUT : returns the child index of the corresponding k value and given index    *    
 	************************************************************************************/
     private int kthChildIndex(int i, int k) 
     {
@@ -199,10 +197,10 @@ public class Heap
     }
 	
 	/********************************************************
-	*  FUNCTION  isEmpty :        	    					*
-	*    checks if the heap is empty		         	    *
-	*  INPUT PARAMETERS : NONE								*    
-	*  OUTPUT : returns true if empty, false if !empty		*    
+	*  FUNCTION  isEmpty :        	    			*
+	*    checks if the heap is empty		        *
+	*  INPUT PARAMETERS : NONE				*    
+	*  OUTPUT : returns true if empty, false if !empty	*    
 	********************************************************/
 	public boolean isEmpty()
 	{
@@ -210,10 +208,10 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  isFull :        	    					*
-	*    checks if the heap is full			         	    *
-	*  INPUT PARAMETERS : NONE								*    
-	*  OUTPUT : returns true if full, false if !full		*    
+	*  FUNCTION  isFull :        	    			*
+	*    checks if the heap is full			        *
+	*  INPUT PARAMETERS : NONE				*    
+	*  OUTPUT : returns true if full, false if !full	*    
 	********************************************************/
 	public boolean isFull()
 	{
@@ -221,10 +219,10 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  getCapacity :     	    					*
-	*    returns the capacity variable		         	    *
-	*  INPUT PARAMETERS : NONE								*    
-	*  OUTPUT : returns the capacity variable				*    
+	*  FUNCTION  getCapacity :     	    			*
+	*    returns the capacity variable		        *
+	*  INPUT PARAMETERS : NONE				*    
+	*  OUTPUT : returns the capacity variable		*    
 	********************************************************/
 	public int getCapacity()
 	{
@@ -232,10 +230,10 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  getD :     	    						*
-	*    returns the d variable		         	   			*
-	*  INPUT PARAMETERS : NONE								*    
-	*  OUTPUT : returns the d variable						*    
+	*  FUNCTION  getD :     	    			*
+	*    returns the d variable		         	*
+	*  INPUT PARAMETERS : NONE				*    
+	*  OUTPUT : returns the d variable			*    
 	********************************************************/
 	public int getD()
 	{
@@ -243,10 +241,10 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  getNumElements :     	    				*
-	*    returns the numElements variable		            *
-	*  INPUT PARAMETERS : NONE								*    
-	*  OUTPUT : returns the numElemenets variable			*    
+	*  FUNCTION  getNumElements :     	    		*
+	*    returns the numElements variable			*
+	*  INPUT PARAMETERS : NONE				*    
+	*  OUTPUT : returns the numElemenets variable		*    
 	********************************************************/
 	public int getNumElements()
 	{
@@ -254,10 +252,10 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  setD :     		    					*
+	*  FUNCTION  setD :     		    		*
 	*    sets a new d value	according to given parameter    *
-	*  INPUT PARAMETERS : dVal, the new d value				*    
-	*  OUTPUT : VOID										*    
+	*  INPUT PARAMETERS : dVal, the new d value		*    
+	*  OUTPUT : VOID					*    
 	********************************************************/
 	public void setD(int dVal)
 	{
@@ -265,11 +263,11 @@ public class Heap
 	}
 	
 	/********************************************************
-	*  FUNCTION  toString :     	    					*
-	*    puts the heap into a readable string form     	    *
-	*  INPUT PARAMETERS : NONE								*    
-	*  OUTPUT : returns the string to be output,	 		*
-	*  returns empty if heap is empty.						*    
+	*  FUNCTION  toString :     	    			*
+	*    puts the heap into a readable string form		*
+	*  INPUT PARAMETERS : NONE				*    
+	*  OUTPUT : returns the string to be output,	 	*
+	*  returns empty if heap is empty.			*    
 	********************************************************/
 	@Override
 	public String toString(){
