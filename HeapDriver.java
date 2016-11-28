@@ -152,7 +152,6 @@ public class HeapDriver {
 				}
 				break;
 				
-
 			case 4: // case 4: exit the program.
 				System.out.print("Program Terminated");
 				break;
