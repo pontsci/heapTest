@@ -1,5 +1,3 @@
-package heapTest;
-
 /*************************************************** 
  *   Program Title: D-Heaps Implementation          *
  *   Author:  Mason Fleming                         *                    
