@@ -23,10 +23,6 @@ public class Heap
 			System.arraycopy(heap, 0, tmp, 0, capacity);
 			capacity++;
 			heap = tmp;
-			//System.out.println("TMP: " + Arrays.toString(tmp));
-			//System.out.println("HEAP: " + Arrays.toString(heap));
-			//heap[capacity * 2 - 1] = 1;
-			//System.out.println("HEAP after addition: " + Arrays.toString(heap));
 		}
         heap[numElements++] = num;
         percUp(numElements - 1);
@@ -37,16 +33,27 @@ public class Heap
 	{
         if(isEmpty())
         {
-        	
+        	return 0;
         }
         int deleted = heap[0];
-        heap[0] = heap[numElements - 1];
-        numElements--;
-		int[] tmp = new int[capacity - 1];
-		System.arraycopy(heap, 0, tmp, 0, capacity - 1);
-		capacity--;
-		heap = tmp;
-        percDown(0);
+        if(numElements == 1){
+            heap[0] = heap[numElements - 1];
+            numElements--;
+    		int[] tmp = new int[capacity - 1];
+    		System.arraycopy(heap, 0, tmp, 0, capacity - 1);
+    		capacity--;
+    		heap = tmp;
+        }
+        else
+        {
+	        heap[0] = heap[numElements - 1];
+	        numElements--;
+			int[] tmp = new int[capacity - 1];
+			System.arraycopy(heap, 0, tmp, 0, capacity - 1);
+			capacity--;
+			heap = tmp;
+	        percDown(0);
+        }
         return deleted;
 	}
 	
@@ -103,7 +110,6 @@ public class Heap
 	{
         for(int i = numElements / d; i > -1; i--)
         {
-        	System.out.println(Arrays.toString(heap));
         	percDown(i);
         }
 		return 1;
@@ -151,6 +157,17 @@ public class Heap
 	
 	@Override
 	public String toString(){
-		return "Output: Heap (d=" + d + "):" + Arrays.toString(heap);
+		String formattedString = Arrays.toString(heap);
+		formattedString = formattedString.replaceAll(",", "");
+		formattedString = formattedString.replace("[", " ");
+		formattedString = formattedString.replace("]", "");
+		if(numElements != 0)
+		{
+		return "Output: Heap (d=" + d + "):" + formattedString;
+		}
+		else
+		{
+			return "Output: Heap (d=" + d + "):" + " (empty)";
+		}
 	}
 }

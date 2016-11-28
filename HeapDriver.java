@@ -8,11 +8,12 @@ public class HeapDriver {
 	public static void main(String[] args) 
 	{
 		int cap;	//capacity
-		int d, i = 0;
+		int choice, d, i = 0;
 		int[] num;
 		String userIn;	
 		String[] numStr;
 		Scanner sc = new Scanner(System.in);
+		
 		
 		while(true)
 		{
@@ -42,6 +43,7 @@ public class HeapDriver {
 			numStr = null;
 			}
 		}
+		
 		i = 0;
 		while(true)
 		{
@@ -60,27 +62,95 @@ public class HeapDriver {
 			catch(InputMismatchException e)
 			{
 				System.err.print("Input was not an integer.\n");
+				sc.nextLine();
 			}
-			sc.nextLine();
+			
+		}
+		
+		Heap h1 = new Heap(cap, d, num);
+		h1.buildHeap();
+		System.out.println(h1.toString());
+		choice = 0;
+		while(choice != 4)
+		{
+			System.out.print("Press 1) for insert, 2) for deleteMin, 3) for new d value, 4) to quit\n");
+			try
+			{
+				System.out.print("Enter choice: ");
+				choice = sc.nextInt();
+			}
+			catch(InputMismatchException e)
+			{
+				System.err.print("Input was not an integer.\n");
+				sc.nextLine();
+				continue;
+			}
+			
+			switch (choice){
+			case 1:
+				while(true)
+				{
+					System.out.print("Enter element to insert: ");
+					try 
+					{
+						h1.insert(sc.nextInt());
+						System.out.println(h1.toString());
+						break;
+					} 
+					catch (InputMismatchException e) 
+					{
+						System.err.print("Input was not an integer.\n");
+						sc.nextLine();
+						continue;
+					}
+				}
+				break;
+
+			case 2:
+				if(h1.deleteMin() == 0 && h1.getNumElements() == 0)
+				{
+					System.out.print("Heap is empty.\n");
+				}
+				else
+				{
+					System.out.println(h1.toString());
+				}
+
+				break;
+
+			case 3:
+				while(true)
+				{
+					System.out.print("Enter d: ");
+					try 
+					{
+						h1.setD(sc.nextInt());
+						if(!h1.isEmpty()){
+							h1.buildHeap();
+						}
+						System.out.println(h1.toString());
+						break;
+					} 
+					catch (InputMismatchException e)
+					{
+						System.err.print("Input was not an integer.\n");
+						sc.nextLine();
+						continue;
+					}
+				}
+				break;
+				
+
+			case 4:
+				System.out.print("Program Terminated");
+				break;
+
+			default:
+				System.err.print("Invalid number, please enter an integer from 1 to 4.\n");
+				break;
+
+			}
 		}
 		sc.close();
-		
-		//create Heap
-		Heap h1 = new Heap(cap, d, num);
-		System.out.println(h1.toString());
-		h1.buildHeap();
-		System.out.println(h1.toString());
-		System.out.println("Inserting 1");
-		h1.insert(1);
-		System.out.println(h1.toString());
-		System.out.println("Inserting 10");
-		h1.insert(10);
-		System.out.println(h1.toString());
-		System.out.println("Deleting " + h1.deleteMin());
-		System.out.println(h1.toString());
-		System.out.println("Setting d to 2...");
-		h1.setD(2);
-		h1.buildHeap();
-		System.out.println(h1.toString());
 	}
 }
